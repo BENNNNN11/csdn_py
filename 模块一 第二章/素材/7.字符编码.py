@@ -1,12 +1,21 @@
+# 字符编码
+
+'''
+    1. 字符编码类型：
+        ascii编码
+        中文GB2312
+        unicode
+        utf-8
+'''
 print(ord('A'))
 print(ord('我'))
 
 print(chr(65))
 print(chr(25105))
 
-# 传输和保存  需要对字符进行 编解码，utf-8通用编解码
+# 传输和保存: 需要对字符进行编码和解码，utf-8通用编解码
 
-x = b'ABC' # 字节数组，byte数组
+x = b'ABC'  # 字节数组，byte数组
 
 print(x)
 
@@ -15,7 +24,7 @@ print(x)
 #
 # print(x)
 
-# 在bytes中，无法显示ASC字符的字节，用\x##来显示
+# 在bytes中，无法显示ASCII字符的字节，用\x##来显示
 print('你好'.encode('gbk'))
 print('ABC'.encode('utf-8'))
 

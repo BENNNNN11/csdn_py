@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 '说明模块用途的地方'
-
 __author__ = 'yh'
 
 def test():

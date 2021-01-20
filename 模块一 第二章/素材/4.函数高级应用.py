@@ -1,3 +1,7 @@
+# 函数的高级应用
+# Python中函数即变量
+
+
 # abs(-10)函数调用，abs是函数本身
 print(abs(-10))
 
@@ -10,6 +14,7 @@ print(f(-10))
 # abs = 10
 # abs(-10)
 
+# 代理模式
 # 把函数当作参数传递给其他函数
 def add(x,y,f):
     return f(x)+f(y)
@@ -24,7 +29,8 @@ print(add(-5,6,abs))
 # return 11
 
 '''
-    map
+    map函数： 接受两个参数，一个是函数，一个是iterable的可迭代对象
+    将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回
 '''
 
 l = [1,2,3,4,5,6,7,8,9]
@@ -52,7 +58,7 @@ print(list(map(str,l)))
 
 
 '''
-    reduce
+    reduce函数：reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 '''
 
 l = [4,2,5,7,8,9]  #获得425789
@@ -69,7 +75,7 @@ print(type(reduce(f,l)))
 # str()  int()
 # '5632'==>5632
 # 1. 字符串每个元素取出来，转化成对应的数字,得到一个数字序列
-# 2.通过数字序列每两个*10 相加，得到一个整数
+# 2. 通过数字序列每两个*10 相加，得到一个整数
 
 def f(x,y):
     return x * 10 + y
@@ -80,13 +86,13 @@ def char2num(s):
 
 s1 = '5632'
 
-nums = reduce(f,map(char2num,s1))
+nums = reduce(f, map(char2num,s1))
 
 print(type(nums))
 print(nums)
 
 '''
-    匿名函数  在函数中定义函数，
+    匿名函数：在函数中定义函数，只能在函数内部调用
 '''
 
 DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
@@ -95,7 +101,7 @@ def str2int(s):
         return x * 10 + y
     def char2num(s):
         return DIGITS[s]
-    return reduce(f,map(char2num,s))
+    return reduce(f, map(char2num,s))
 
 print(str2int('674321'))
 
@@ -108,14 +114,13 @@ def str2int(s):
 print(str2int('432'))
 
 '''
-    装饰器
+    装饰器： 在代码运行期间动态增加功能的方式
 '''
 
 import datetime
 
 
-# 装饰器 以一个函数作为参数，并返回一个函数
-
+# 装饰器：以一个函数作为参数，并返回一个函数
 def log(f):
     def write_log(*args,**kw):
         with open('./a.txt','w') as f1:
@@ -157,6 +162,7 @@ class Student(object):
         if value < 0 or value > 100:
             raise ValueError('score must between 0 ~ 100!')
         self.__score = value
+
 
 stu1 = Student(90)
 

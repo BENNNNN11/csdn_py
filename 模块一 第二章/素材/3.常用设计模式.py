@@ -69,7 +69,7 @@ while True:
 
 
 '''
-    迭代器： 
+    迭代器：
 '''
 
 # 判断一个对象是否可迭代 Iterable
@@ -87,7 +87,7 @@ from collections.abc import Iterator
 # print(isinstance('abc',Iterator))
 # print(isinstance(123,Iterator))
 
-
+# 可迭代对象变成生成器， 变成（数据流）惰性序列进行代码优化，
 print(isinstance(iter([]),Iterator))
 print(isinstance(iter({}),Iterator))
 print(isinstance(iter('abc'),Iterator))
