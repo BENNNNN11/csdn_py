@@ -126,7 +126,7 @@ def log(f):
         with open('./a.txt','w') as f1:
             f1.write(f.__name__)
             print('写入日志成功，函数名字是:%s'%f.__name__)
-            return f(*args,**kw)
+            return f(*args, **kw)
     return write_log
 
 @log

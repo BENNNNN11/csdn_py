@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys
 import os
 import time
@@ -28,7 +30,7 @@ class CharFrame:
             blank += ' '*(limitSize[0]-img.shape[1])
         if wrap:
             blank += '\n'
-        for i in range(img.shape[0]): # shape 为元组 图片的（宽，高）
+        for i in range(img.shape[0]):  # shape 为元组 图片的（宽，高）
             for j in range(img.shape[1]):
                 ascii_frame += self.pixelToChar(img[i,j])
             ascii_frame += blank
@@ -159,7 +161,6 @@ class V2Char(CharFrame):
 
 '''
     图片转字符画
-
 '''
 #
 class I2Char(CharFrame):
@@ -170,10 +171,11 @@ class I2Char(CharFrame):
         self.genCharImage(path, limitSize, fill, wrap)
 
     def genCharImage(self, path, limitSize=-1, fill=False, wrap=False):
-
+        cap = cv2.VideoCapture(path)
         # 给self.result 字符画字符串赋值
-        pass
-        self.result = ''
+        rawFrame = cv2.cvtColor(cap.read()[1], cv2.COLOR_BGR2GRAY)
+        frame = self.convert(rawFrame, os.get_terminal_size(), fill=True)
+        self.result = frame
 
 
     def show(self, stream = 2):
